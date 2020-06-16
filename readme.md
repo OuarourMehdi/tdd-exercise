@@ -11,3 +11,23 @@ paniers (les offres similaires se verront appliquer la quantité du panier gard�
 Les paniers anonymes doivent être supprimés du système après l’opération de fusion.
 
 Ecrire le service permettant de réaliser cette opération de fusion et de retourner le panier résultant.
+
+-------------------------------------------------------------------------------------
+# Décomposition de la fonctionnalité 
+- Vérifications des arguments (customerId && session id ...)
+- Choix panier AUTHENTICATED
+```
+ - gestion du panier AUTHENTICATED non trouvé
+ - suppression du panier ANONYMOUS
+```
+- Choix panier ANONYMOUS
+```
+ - gestion du panier AUTHENTICATED non trouvé
+ - replacement du contenu du panier AUTHENTICATED par le contenu ANONYMOUS
+ - suppression du panier ANONYMOUS
+```
+- Fusion des offres
+```
+ - fusion d'offres différentes
+ - fusion d'offres similaires (garder la quantité présente le panier gardé)
+```
